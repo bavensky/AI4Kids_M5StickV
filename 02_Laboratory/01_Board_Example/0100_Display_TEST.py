@@ -29,3 +29,4 @@ while True:
     lcd.draw_string(0, 0, "Hello World!")
     lcd.draw_string(0, 15, "M5 Stick V")
     lcd.draw_string(0, 30, "LCD Display 135x240")
+    lcd.draw_string(0, 45, "M5 Hello")

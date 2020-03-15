@@ -5,6 +5,28 @@ lcd.init()
 lcd.rotation(2)
 lcd.clear()
 
+from Maix import GPIO
+from fpioa_manager import *
+from board import board_info
+
+# Add Register
+fm.register(board_info.LED_W, fm.fpioa.GPIO3)
+fm.register(board_info.LED_R, fm.fpioa.GPIO4)
+fm.register(board_info.LED_G, fm.fpioa.GPIO5)
+fm.register(board_info.LED_B, fm.fpioa.GPIO6)
+
+# Setup LED Mode
+led_w = GPIO(GPIO.GPIO3, GPIO.OUT)
+led_r = GPIO(GPIO.GPIO4, GPIO.OUT)
+led_g = GPIO(GPIO.GPIO5, GPIO.OUT)
+led_b = GPIO(GPIO.GPIO6, GPIO.OUT)
+
+# LED is Active Low (0 is ON, 1 is OFF)
+led_w.value(1)
+led_r.value(1)
+led_g.value(1)
+led_b.value(1)
+
 MPU6886_ADDRESS             =   0x68
 MPU6886_WHOAMI              =   0x75
 MPU6886_ACCEL_INTEL_CTRL    =  0x69
@@ -81,4 +103,9 @@ while True:
     lcd.draw_string(20,70,"y:"+str(accel_array[1]))
     lcd.draw_string(20,90,"z:"+str(accel_array[2]))
 
-    time.sleep_ms(10)
+    if accel_array[1] > 0.8:
+        led_w.value(0)
+    else:
+        led_w.value(1)
+
+    time.sleep_ms(1000)

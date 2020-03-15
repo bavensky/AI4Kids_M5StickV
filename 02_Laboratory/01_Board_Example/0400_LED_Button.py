@@ -28,10 +28,12 @@ led_g = GPIO(GPIO.GPIO5, GPIO.OUT)
 led_b = GPIO(GPIO.GPIO6, GPIO.OUT)
 
 # LED is Active Low (0 is ON, 1 is OFF)
-led_w.value(1) 
-led_r.value(1) 
+led_w.value(1)
+led_r.value(1)
 led_g.value(1)
 led_b.value(1)
+
+lcd.clear(lcd.BLACK)
 
 while(True):
     if button_a.value() == 0 and button_b.value() == 0:
@@ -41,6 +43,7 @@ while(True):
         led_g.value(1)
         led_b.value(1)
     elif button_a.value() == 0:
+        lcd.draw_string(0, 30, "Superman")
         time.sleep_ms(200)
         print("Button A Press")
         led_r.value(1)

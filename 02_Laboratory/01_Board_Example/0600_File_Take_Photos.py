@@ -37,15 +37,16 @@ try:
         # Take Photos
         if button_a.value() == 0:
             cnt_save+=1
-            fname = "/sd/photos/"+str(cnt_save)+".jpg"
-            print(fname)
+            #fname = "/sd/photos/"+str(cnt_save)+".jpg"
+            print("/sd/photos/mam1.jpg")
 
-            img.save(fname, quality=95)
+            img.save("/sd/photos/mam1.jpg", quality=95)
 
         # Display Photos on Screen
         if button_b.value() == 0:
             cnt_show+=1
-            img_read = image.Image("/sd/photos/"+str(cnt_show)+".jpg")
+            img_read = image.Image("/sd/photos/man"+str(cnt_show)+".jpg")
+                                  # "/sd/photos/man1.jpg"
             lcd.display(img_read)
             print("Show Image " + str(cnt_show))
             time.sleep(1)

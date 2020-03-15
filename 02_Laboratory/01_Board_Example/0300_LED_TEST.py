@@ -5,7 +5,7 @@ import sensor, time
 
 from Maix import GPIO
 from fpioa_manager import *
-from board import board_info    
+from board import board_info
 
 # Add Register
 fm.register(board_info.LED_W, fm.fpioa.GPIO3)
@@ -20,38 +20,28 @@ led_g = GPIO(GPIO.GPIO5, GPIO.OUT)
 led_b = GPIO(GPIO.GPIO6, GPIO.OUT)
 
 # LED is Active Low (0 is ON, 1 is OFF)
-led_w.value(1) 
-led_r.value(1) 
-led_g.value(1) 
-led_b.value(1) 
+led_w.value(1)
+led_r.value(1)
+led_g.value(1)
+led_b.value(1)
 
 while(True):
-    led_w.value(0)
-    led_r.value(1)
-    led_g.value(1)
-    led_b.value(1)
-    time.sleep(1)
-
     led_w.value(1)
     led_r.value(0)
-    led_g.value(1)
-    led_b.value(1)
-    time.sleep(1)
-
-    led_w.value(1)
-    led_r.value(1)
-    led_g.value(0)
-    led_b.value(1)
-    time.sleep(1)
-
-    led_w.value(1)
-    led_r.value(1)
     led_g.value(1)
     led_b.value(0)
     time.sleep(1)
 
-    led_w.value(1)
-    led_r.value(0)
-    led_g.value(0)
-    led_b.value(0)
-    time.sleep(1)
+
+
+
+
+
+
+
+
+
+
+
+
+

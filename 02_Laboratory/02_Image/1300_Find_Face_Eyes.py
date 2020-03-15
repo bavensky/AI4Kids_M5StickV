@@ -26,6 +26,7 @@ while True:
 
     objects = img.find_features(face_cascade, threshold=0.5, scale_factor=1.5)
     for face in objects:
+        print(face)
         img.draw_rectangle(face, color = (255, 0, 0))
         eyes = img.find_features(eyes_cascade, threshold=0.5, scale_factor=1.2, roi=face)
         for e in eyes:
